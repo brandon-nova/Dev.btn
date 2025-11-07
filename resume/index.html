@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Resume and experience in machine learning, financial compliance, and product development.">
+  <meta name="author" content="dev.btn">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Resume | dev.btn">
+  <meta property="og:description" content="Resume and experience in machine learning">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dev.btn/resume">
+  
+  <!-- Canonical -->
+  <link rel="canonical" href="https://dev.btn/resume">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/Logo.png">
+  
+  <title>Resume | dev.btn</title>
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="header-container">
+      <a href="/" class="header-logo" aria-label="Home">dev.btn</a>
+      
+      <nav class="nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="/work" class="nav-link">Work</a></li>
+          <li><a href="/projects" class="nav-link">Projects</a></li>
+          <li><a href="/#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      
+      <div class="header-actions">
+        <div class="header-social">
+          <a href="https://github.com/brandon-nova" target="_blank" rel="noopener" class="header-social-link" aria-label="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/brandon-nova/" target="_blank" rel="noopener" class="header-social-link" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </a>
+        </div>
+        <a href="/resume" class="header-resume-icon" aria-label="Resume">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="section" style="padding-top: var(--spacing-lg); padding-bottom: var(--spacing-lg);">
+      <div class="container" style="max-width: 900px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--spacing-md);">
+          <div style="flex: 1;">
+            <!-- Summary -->
+            <section class="resume-section" style="margin-bottom: var(--spacing-md);">
+              <h2 class="resume-section-title" style="margin-bottom: var(--spacing-sm);">Summary</h2>
+              <p style="color: var(--color-text-secondary); line-height: var(--line-height-loose);">
+                Machine Learning Engineer with expertise in building production ML systems for financial 
+                compliance and product development. Specialized in anomaly detection, graph neural networks, 
+                and responsible ML deployment. Proven track record of reducing false-positive rates by 23%, 
+                improving match rates by 25%, and building communities of 5,000+ practitioners.
+              </p>
+            </section>
+          </div>
+          <a href="../assets/resume.pdf" download class="header-resume-icon" aria-label="Download Resume" style="margin-left: var(--spacing-lg);">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+          </a>
+        </div>
+
+        <!-- PDF Viewer -->
+        <div class="pdf-viewer-container">
+          <iframe src="../assets/resume.pdf" class="pdf-viewer" title="Resume PDF"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-content">
+        <p>&copy; <span id="year">2025</span> dev.btn</p>
+        <div class="footer-links">
+          <a href="mailto:brandon.t.nova@gmail.com" class="footer-link">Email</a>
+          <div class="footer-social">
+            <a href="https://github.com/brandon-nova" target="_blank" rel="noopener" class="footer-social-link" aria-label="GitHub">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/brandon-nova/" target="_blank" rel="noopener" class="footer-social-link" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js" defer></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+

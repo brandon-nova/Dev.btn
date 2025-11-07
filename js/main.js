@@ -30,7 +30,11 @@ window.addEventListener('scroll', onScroll, { passive: true });
 // Navigation active state
 function setActiveNavLink() {
   const currentPath = window.location.pathname;
-  const currentFile = currentPath.split('/').pop() || 'index.html';
+  // Remove trailing slash and get the path segments
+  const normalizedPath = currentPath.replace(/\/$/, '') || '/';
+  const pathSegments = normalizedPath.split('/').filter(s => s);
+  const currentPage = pathSegments.length > 0 ? '/' + pathSegments.join('/') : '/';
+  
   const navLinks = document.querySelectorAll('.nav-link');
   const hash = window.location.hash;
   
@@ -38,15 +42,13 @@ function setActiveNavLink() {
     const linkHref = link.getAttribute('href');
     if (!linkHref) return;
     
-    // Don't set aria-current for anchor links unless we're actually on that section
+    // Handle anchor links (like /#contact)
     if (linkHref.includes('#')) {
-      const linkHash = linkHref.split('#')[1];
-      // Only mark as current if hash matches AND we're on the same page
-      const isCurrentHome = !currentFile || currentFile === 'index.html' || currentFile.endsWith('/index.html');
-      const linkFile = linkHref.split('#')[0].split('/').pop() || 'index.html';
-      const isLinkHome = !linkFile || linkFile === 'index.html';
+      const [linkPath, linkHash] = linkHref.split('#');
+      const normalizedLinkPath = (linkPath || '/').replace(/\/$/, '') || '/';
       
-      if (hash === '#' + linkHash && ((isCurrentHome && isLinkHome) || currentFile === linkFile)) {
+      // Only mark as current if we're on the home page and hash matches
+      if (currentPage === '/' && hash === '#' + linkHash) {
         link.setAttribute('aria-current', 'page');
       } else {
         link.removeAttribute('aria-current');
@@ -54,23 +56,18 @@ function setActiveNavLink() {
       return;
     }
     
-    // Get the filename from the href
-    let linkFile = '';
+    // Handle clean URLs (/, /work, /projects, /resume)
+    let linkPath = '';
     try {
       const url = new URL(linkHref, window.location.href);
-      linkFile = url.pathname.split('/').pop() || '';
+      linkPath = url.pathname.replace(/\/$/, '') || '/';
     } catch (e) {
-      // For relative paths, use the href directly
-      linkFile = linkHref.split('#')[0]; // Remove anchor
-      linkFile = linkFile.split('/').pop() || linkFile;
+      // For relative paths
+      linkPath = (linkHref.split('#')[0] || '/').replace(/\/$/, '') || '/';
     }
     
-    // Normalize: empty or 'index.html' means home page
-    const isCurrentHome = !currentFile || currentFile === 'index.html' || currentFile.endsWith('/index.html');
-    const isLinkHome = !linkFile || linkFile === 'index.html' || linkHref === 'index.html' || linkHref === '/';
-    
-    // Check if they match
-    if ((isCurrentHome && isLinkHome) || currentFile === linkFile) {
+    // Check if paths match
+    if (currentPage === linkPath) {
       link.setAttribute('aria-current', 'page');
     } else {
       link.removeAttribute('aria-current');
