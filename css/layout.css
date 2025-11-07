@@ -1,0 +1,342 @@
+/* Header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-header);
+  background-color: transparent;
+  transition: background-color var(--transition-base), backdrop-filter var(--transition-base);
+  padding: var(--spacing-md) 0;
+}
+
+.header.scrolled {
+  background-color: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+@media (prefers-color-scheme: dark) {
+  .header.scrolled {
+    background-color: rgba(10, 10, 10, 0.8);
+  }
+}
+
+.header-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter-mobile);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.header-logo {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--color-text);
+  transition: opacity var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.header-actions {
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+@media (min-width: 768px) {
+  .header-container {
+    padding: 0 var(--gutter-desktop);
+  }
+  
+  .nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    z-index: 1;
+  }
+  
+  .header-logo {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .header-actions {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.header-logo:hover {
+  opacity: 0.7;
+}
+
+.header-logo:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}
+
+/* Navigation */
+.nav {
+  display: none;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+  .nav {
+    display: flex;
+  }
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  list-style: none;
+}
+
+.nav-link {
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  position: relative;
+  padding: var(--spacing-xs) 0;
+  transition: opacity var(--transition-fast);
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-link:hover {
+  opacity: 0.7;
+}
+
+.nav-link[aria-current="page"] {
+  opacity: 1;
+}
+
+.nav-link[aria-current="page"]::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--color-accent);
+  opacity: 1;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  right: 50%;
+  height: 2px;
+  background-color: var(--color-accent);
+  transition: left var(--transition-base), right var(--transition-base), opacity var(--transition-base);
+  opacity: 0;
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  left: 0;
+  right: 0;
+  opacity: 1;
+}
+
+/* Special case: don't show underline for contact link unless it's the active section */
+.nav-link[href*="#contact"]:not([aria-current="page"])::after {
+  display: none !important;
+}
+
+.nav-link[href*="#contact"]:not([aria-current="page"]):hover::after {
+  display: block;
+  opacity: 1;
+}
+
+/* Header Actions */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.header-social {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.header-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: var(--color-text);
+  transition: opacity var(--transition-fast);
+}
+
+.header-social-link:hover {
+  opacity: 0.7;
+}
+
+.header-social-link svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+}
+
+.header-resume-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: var(--color-text);
+  transition: opacity var(--transition-fast);
+}
+
+.header-resume-icon:hover {
+  opacity: 0.7;
+}
+
+.header-resume-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+}
+
+/* Footer */
+.footer {
+  padding: var(--spacing-xl) 0 var(--spacing-lg);
+  margin-top: var(--spacing-2xl);
+  border-top: 1px solid var(--color-border);
+}
+
+.footer-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter-mobile);
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .footer-container {
+    padding: 0 var(--gutter-desktop);
+  }
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-link {
+  color: var(--color-text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.footer-link:hover {
+  color: var(--color-text);
+}
+
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.footer-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: var(--color-text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.footer-social-link:hover {
+  color: var(--color-text);
+}
+
+.footer-social-link svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+}
+
+/* Main Content */
+.main {
+  margin-top: 80px; /* Header height */
+  min-height: calc(100vh - 80px);
+}
+
+/* Grid Systems */
+.grid {
+  display: grid;
+  gap: var(--spacing-lg);
+}
+
+.grid-2 {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.grid-3 {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Responsive Utilities */
+@media (max-width: 767px) {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .hide-desktop {
+    display: none !important;
+  }
+}
+

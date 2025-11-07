@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Case studies on applying machine learning in production: financial compliance monitoring, anomaly detection, and responsible ML deployment.">
+  <meta name="author" content="dev.btn">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Work - ML in Practice | dev.btn">
+  <meta property="og:description" content="Case studies on applying machine learning in production">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dev.btn/work.html">
+  
+  <!-- Canonical -->
+  <link rel="canonical" href="https://dev.btn/work.html">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/Logo.png">
+  
+  <title>Work - ML in Practice | dev.btn</title>
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="header-container">
+      <a href="index.html" class="header-logo" aria-label="Home">dev.btn</a>
+      
+      <nav class="nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="work.html" class="nav-link" aria-current="page">Work</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
+          <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      
+      <div class="header-actions">
+        <div class="header-social">
+          <a href="https://github.com" target="_blank" rel="noopener" class="header-social-link" aria-label="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg>
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" class="header-social-link" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </a>
+        </div>
+        <a href="resume.html" class="header-resume-icon" aria-label="Resume">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Case Study A: Financial Compliance Monitoring -->
+    <section class="case-study" style="margin: var(--spacing-2xl) 0 var(--spacing-xl) 0; padding-top: var(--spacing-md);">
+      <div class="container">
+        <article class="reveal">
+          <h2 class="section-title" style="margin-bottom: var(--spacing-lg);">Financial Compliance Monitoring</h2>
+          
+          <div class="case-study-section">
+            <h3 class="case-study-section-title">Problem</h3>
+            <div class="case-study-content">
+              <p>
+                OUC has thousands of transactions monthly that need to be monitored for compliance.
+              </p>
+            </div>
+          </div>
+
+          <div class="case-study-section">
+            <h3 class="case-study-section-title">Data</h3>
+            <div class="case-study-content">
+              <p>
+                The system processes transaction metadata including amounts, timestamps,
+                merchant categories, and transaction types. 
+              </p>
+            </div>
+          </div>
+
+          <div class="case-study-section">
+            <h3 class="case-study-section-title">Approach</h3>
+            <div class="case-study-content">
+              <p>
+                A hybrid approach combining gradient boosting models (XGBoost, LightGBM) as well as using anomaly detection models (Isolation Forest, Autoencoders) to identify unusual patterns in transaction flows.
+              </p>
+            </div>
+          </div>
+
+          <div class="case-study-section">
+            <h3 class="case-study-section-title">Evaluation</h3>
+            <div class="case-study-content">
+              <p>
+                Models are evaluated using precision, recall, F1-score, and false-positive rate. 
+                Before ML implementation, there was manual monitoring. After development, there has been an achieved weighted F1 score of 80%+. 
+              </p>
+              <div class="case-study-metrics">
+                <div class="metric">
+                  <div class="metric-label">Precision</div>
+                  <div class="metric-value">83%</div>
+                  <div class="metric-label" style="margin-top: var(--spacing-xs);">+23% from baseline</div>
+                </div>
+                <div class="metric">
+                  <div class="metric-label">False-Positive Rate</div>
+                  <div class="metric-value">1.2%</div>
+                  <div class="metric-label" style="margin-top: var(--spacing-xs);">-23% from baseline</div>
+                </div>
+                <div class="metric">
+                  <div class="metric-label">True Negatives</div>
+                  <div class="metric-value">98.8%</div>
+                </div>
+                <div class="metric">
+                  <div class="metric-label">Recall</div>
+                  <div class="metric-value">72%</div>
+                  <div class="metric-label" style="margin-top: var(--spacing-xs);">Maintained</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="case-study-section">
+            <h3 class="case-study-section-title">Deployment</h3>
+            <div class="case-study-content">
+              <p>
+                <strong>Infrastructure:</strong> Snowflake ML infrastructure.<br><br>
+                <strong>Monitoring:</strong> Real-time monitoring of financial transactions with the intention to trigger human intervention as applicable.<br><br>
+                <strong>Latency:</strong> Very low.
+              </p>
+            </div>
+          </div>
+
+          <div class="case-study-section">
+            <h3 class="case-study-section-title">Impact</h3>
+            <div class="case-study-content">
+              <p>
+                The ML system exists and is still in development.
+              </p>
+            </div>
+          </div>
+
+        </article>
+      </div>
+    </section>
+
+    <!-- Callout Panels -->
+    <section class="section">
+      <div class="container">
+        <div class="grid grid-2">
+          <div class="callout reveal">
+            <h3 class="callout-title">What I Supported</h3>
+            <ul class="callout-list">
+              <li>Problem definition and scoping</li>
+              <li>Data exploration and feature engineering</li>
+              <li>Model development and training</li>
+              <li>Model evaluation and validation</li>
+              <li>Performance optimization and iteration</li>
+              <li>Documentation and knowledge sharing</li>
+            </ul>
+          </div>
+
+          <div class="callout reveal">
+            <h3 class="callout-title">What I Collaborate On</h3>
+            <ul class="callout-list">
+              <li>Infrastructure design with platform teams</li>
+              <li>Compliance requirements with compliance team</li>
+              <li>Product integration with data teams</li>
+              <li>Stakeholder alignment and prioritization</li>
+              <li>Model interpretation with compliance SMEs</li>
+              <li>User feedback collection and analysis</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout reveal" style="margin-top: var(--spacing-lg);">
+          <h3 class="callout-title">Safety & Compliance Checklist</h3>
+          <ul class="callout-list">
+            <li><strong>Explainability:</strong> Feature importance analysis</li>
+            <li><strong>Approvals:</strong> Model review process with stakeholders and compliance</li>
+            <li><strong>Monitoring:</strong> Monthly review of F1 and false-positive rate</li>
+            <li><strong>Documentation:</strong> Documentation for future iteration</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-content">
+        <p>&copy; <span id="year">2025</span> dev.btn</p>
+        <div class="footer-links">
+          <a href="mailto:brandon.t.nova@gmail.com" class="footer-link">Email</a>
+          <div class="footer-social">
+            <a href="https://github.com" target="_blank" rel="noopener" class="footer-social-link" aria-label="GitHub">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+              </svg>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" class="footer-social-link" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/work-scroll-effect.js" defer></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
